@@ -1,6 +1,7 @@
 #!/bin/bash -x
 
 declare -A ArithDictionary
+declare -a arr
 
 echo "Enter three numbers:"
 read -p "a: " a
@@ -17,5 +18,10 @@ ArithDictionary[res2]=$e
 ArithDictionary[res3]=$f
 ArithDictionary[res4]=$g
 
-echo ${ArithDictionary[@]}
-echo ${!ArithDictionary[@]}
+counter=0
+for i in ${!ArithDictionary[@]}
+do
+        arr[counter++]=${ArithDictionary[$i]}
+done
+
+echo ${arr[@]}
