@@ -25,5 +25,5 @@ do
 done
 
 
-arrDesc=`printf "%s\n" ${arr[@]} | sort -nr`
-echo $arrDesc
+arrAsc=`printf "%s\n" ${arr[@]} | sort -n`
+echo $arrAsc
