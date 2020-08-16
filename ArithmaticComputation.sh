@@ -24,4 +24,6 @@ do
         arr[counter++]=${ArithDictionary[$i]}
 done
 
-echo ${arr[@]}
+
+arrDesc=`printf "%s\n" ${arr[@]} | sort -nr`
+echo $arrDesc
