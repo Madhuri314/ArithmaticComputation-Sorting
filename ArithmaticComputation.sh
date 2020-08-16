@@ -6,3 +6,6 @@ read -p "b: " b
 read -p "c: " c
 
 d=$(($a + $b * $c))
+e=$(($a * $b + $c))
+f=$(($c + $a / $b))
+g=$(($a % $b + $c))
