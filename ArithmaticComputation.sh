@@ -23,18 +23,18 @@ for i in ${!arithmaticDictionary[@]}
 do
         arr[counter++]=${arithmaticDictionary[$i]}
 done
-
-for (( j=0;j<4;j++ ))
+n=4
+for (( j=$n;j>=0;j-- ))
 do
-        for (( k=0;k<4-j-1;k++ ))
+        for (( k=$n;k>$n-$j;k-- ))
         do
-                if [ ${arr[k]} -gt ${arr[$(( k+1 ))]} ]
+                if [ ${arr[k]} -gt ${arr[$(( k-1 ))]} ]
                 then
                         temp=${arr[k]}
-                        arr[$k]=${arr[$(( k+1 ))]}
-                        arr[$(( k+1 ))]=$temp
+                        arr[$k]=${arr[$(( k-1 ))]}
+                        arr[$(( k-1 ))]=$temp
                 fi
         done
 done
-echo "Sorted :"
+echo "Sorted in descendind:"
 echo ${arr[@]}
