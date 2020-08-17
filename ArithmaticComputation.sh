@@ -18,5 +18,10 @@ arithmaticDictionary[res2]=$e
 arithmaticDictionary[res3]=$f
 arithmaticDictionary[res4]=$g
 
-echo ${arithmaticDictionary[@]}
-echo ${!arithmaticDictionary[@]}
+counter=0
+for i in ${!arithmaticDictionary[@]}
+do
+        arr[counter++]=${arithmaticDictionary[$i]}
+done
+
+echo ${arr[@]}
