@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-declare -A ArithDictionary
+declare -A arithmaticDictionary
 declare -a arr
 
 echo "Enter three numbers:"
@@ -13,17 +13,28 @@ e=$(($a * $b + $c))
 f=$(($c + $a / $b))
 g=$(($a % $b + $c))
 
-ArithDictionary[res1]=$d
-ArithDictionary[res2]=$e
-ArithDictionary[res3]=$f
-ArithDictionary[res4]=$g
+arithmaticDictionary[res1]=$d
+arithmaticDictionary[res2]=$e
+arithmaticDictionary[res3]=$f
+arithmaticDictionary[res4]=$g
 
 counter=0
-for i in ${!ArithDictionary[@]}
+for i in ${!arithmaticDictionary[@]}
 do
-        arr[counter++]=${ArithDictionary[$i]}
+        arr[counter++]=${arithmaticDictionary[$i]}
 done
-
-
-arrAsc=`printf "%s\n" ${arr[@]} | sort -n`
-echo $arrAsc
+n=4
+for (( j=$n;j>=0;j-- ))
+do
+        for (( k=$n;k>$n-$j;k-- ))
+        do
+                if [ ${arr[k]} -gt ${arr[$(( k-1 ))]} ]
+                then
+                        temp=${arr[k]}
+                        arr[$k]=${arr[$(( k-1 ))]}
+                        arr[$(( k-1 ))]=$temp
+                fi
+        done
+done
+echo "Sorted in descendind:"
+echo ${arr[@]}
