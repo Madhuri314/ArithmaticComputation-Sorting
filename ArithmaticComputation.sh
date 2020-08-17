@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-declare -A ArithDictionary
+declare -A arithmaticDictionary
 declare -a arr
 
 echo "Enter three numbers:"
@@ -13,17 +13,10 @@ e=$(($a * $b + $c))
 f=$(($c + $a / $b))
 g=$(($a % $b + $c))
 
-ArithDictionary[res1]=$d
-ArithDictionary[res2]=$e
-ArithDictionary[res3]=$f
-ArithDictionary[res4]=$g
+arithmaticDictionary[res1]=$d
+arithmaticDictionary[res2]=$e
+arithmaticDictionary[res3]=$f
+arithmaticDictionary[res4]=$g
 
-counter=0
-for i in ${!ArithDictionary[@]}
-do
-        arr[counter++]=${ArithDictionary[$i]}
-done
-
-
-arrAsc=`printf "%s\n" ${arr[@]} | sort -n`
-echo $arrAsc
+echo ${arithmaticDictionary[@]}
+echo ${!arithmaticDictionary[@]}
